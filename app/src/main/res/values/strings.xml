@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UserRegisterLogin</string>
+    <string name="hint_username">UserName</string>
+    <string name="hint_Password">Password </string>
+    <string name="bt_login">Login</string>
+    <string name="success">Success</string>
+</resources>

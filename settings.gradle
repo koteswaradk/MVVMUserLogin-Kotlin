@@ -1,0 +1,2 @@
+rootProject.name = "MVVMUserLogin-Kotlin"
+include ':app'
