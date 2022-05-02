@@ -7,22 +7,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface RetrofitInsatnce {
-    @GET("/movielistjson")
-    fun getAllMovieData():Call<List<Movie>>
+    @GET("/movielist.json")
+    fun getAllMovieData(): Call<List<Movie>>
 
-    companion object{
+    companion object {
 
-        var retrofitInsatnce:RetrofitInsatnce?=null
-        fun getInstance():RetrofitInsatnce{
-            if (retrofitInsatnce==null){
-                val retrofit=Retrofit.Builder()
+        var retrofitInsatnce: RetrofitInsatnce? = null
+        fun getInstance(): RetrofitInsatnce {
+            if (retrofitInsatnce == null) {
+                val retrofit = Retrofit.Builder()
                     .baseUrl("https://howtodoandroid.com")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
 
-                retrofitInsatnce= retrofit.create(RetrofitInsatnce::class.java)
+                retrofitInsatnce = retrofit.create(RetrofitInsatnce::class.java)
             }
-
 
             return retrofitInsatnce!!
         }

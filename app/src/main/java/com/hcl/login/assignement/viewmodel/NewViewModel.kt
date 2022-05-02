@@ -13,10 +13,10 @@ class NewViewModel() : ViewModel() {
     var movieList=MutableLiveData<List<Movie>>()
     private val loginRepository: NewsRepository=NewsRepository()
 
-    fun getMovieData():MutableLiveData<List<Movie>>{
+    fun getMovieData():MutableLiveData<List<Movie>> {
 
 
-       movieList= loginRepository.getMoveData()
+          movieList= loginRepository.getMoveData()
         return movieList
     }
 

@@ -2,6 +2,7 @@ package com.hcl.login.assignement.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.hcl.login.assignement.model.Movie
+import com.hcl.login.assignement.network.RetrofitInsatnce
 import com.hcl.login.assignement.network.RetrofitService
 import kotlinx.coroutines.*
 import retrofit2.Call
@@ -18,11 +19,11 @@ class NewsRepository() {
 
         CoroutineScope(Dispatchers.IO).launch {
 
-            var retrofitServiceInstance=RetrofitService.getInstance()
+            var retrofitServiceInstance=RetrofitInsatnce.getInstance()
 
             withContext(Dispatchers.Main) {
 
-                retrofitServiceInstance.getAllMovies().enqueue(
+                retrofitServiceInstance.getAllMovieData().enqueue(
 
                     object : Callback<List<Movie>> {
                         override fun onResponse(

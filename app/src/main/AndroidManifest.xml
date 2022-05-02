@@ -13,9 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UserRegisterLogin"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.DetailsToTestActivity"></activity>
+       <!-- <activity android:name=".practice.PraciceActivity"></activity>-->
+        <activity android:name=".view.DetailsToTestActivity" />
         <activity android:name=".view.DetailsActivity" />
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".practice.PraciceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

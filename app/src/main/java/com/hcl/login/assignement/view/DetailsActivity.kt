@@ -8,17 +8,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.hcl.login.assignement.MovieAdapter
 import com.hcl.login.assignement.R
 import com.hcl.login.assignement.databinding.ActivityDetailsBinding
-
-import com.hcl.login.assignement.viewmodel.NewViewModel
+import com.hcl.login.assignement.viewmodel.LoginViewModel
 
 class DetailsActivity : AppCompatActivity() {
     private val adapter = MovieAdapter()
     lateinit var binding: ActivityDetailsBinding
-    private lateinit var newViewModel: NewViewModel
+    private lateinit var newViewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        binding=ActivityDetailsBinding.inflate(layoutInflater)
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.recyclerview.fitsSystemWindows
         binding.recyclerview.setHasFixedSize(true)
@@ -26,16 +25,18 @@ class DetailsActivity : AppCompatActivity() {
         dataRequest()
     }
     private fun dataRequest() {
-       // newViewModel=ViewModelProvider(this,NewsViewModelProviderFactory(NewsRepository())).get(NewViewModel::class.java)
-        newViewModel=ViewModelProvider(this).get(NewViewModel::class.java)
-        newViewModel.getMovieData().observe(this, Observer {
-            if (it.isNotEmpty()) {
-                Log.d("TAG", "dataRequest: ${it.get(1).imageurl}")
-                 adapter.setMovies(it)
-                binding.recyclerview.setHasFixedSize(true)
-
+        // newViewModel=ViewModelProvider(this,NewsViewModelProviderFactory(NewsRepository())).get(NewViewModel::class.java)
+        newViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        newViewModel.getAllMovies().observe(
+            this,
+            Observer {
+                if (it.isNotEmpty()) {
+                    Log.d("TAG", "dataRequest: ${it.get(1).imageurl}")
+                    adapter.setMovies(it)
+                    binding.recyclerview.setHasFixedSize(true)
+                }
             }
-        })
+        )
        /* newViewModel.erromesage.observe(this, Observer {
             Toast.makeText(this,"Problem"+it, Toast.LENGTH_LONG).show()
 

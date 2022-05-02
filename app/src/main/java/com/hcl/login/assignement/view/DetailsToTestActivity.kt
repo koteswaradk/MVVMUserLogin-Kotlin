@@ -1,7 +1,7 @@
 package com.hcl.login.assignement.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.hcl.login.assignement.R
 
 class DetailsToTestActivity : AppCompatActivity() {

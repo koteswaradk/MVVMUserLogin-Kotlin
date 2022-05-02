@@ -1,4 +1,4 @@
-package com.hcl.login.assignement.model
+package com.hcl.login.assignement.practice
 
 data class Movie(
     val name: String,

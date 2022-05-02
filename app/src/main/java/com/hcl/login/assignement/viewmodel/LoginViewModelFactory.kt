@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.hcl.login.assignement.repository.LoginRepository
 import java.lang.IllegalArgumentException
 
+/*
 class LoginViewModelFactory(private val repository: LoginRepository) : ViewModelProvider.Factory{
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -15,4 +16,4 @@ class LoginViewModelFactory(private val repository: LoginRepository) : ViewModel
         }
     }
 
-}
+}*/

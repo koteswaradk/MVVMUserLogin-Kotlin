@@ -1,91 +1,59 @@
 package com.hcl.login.assignement.view
 
 import androidx.test.espresso.Espresso.onView
-
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.* // ktlint-disable no-wildcard-imports
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.hcl.login.assignement.R
-import kotlinx.coroutines.delay
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.concurrent.TimeoutException
-import kotlin.concurrent.thread
-
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
     @Rule
     @JvmField
-    var acitivityTestRule=ActivityTestRule(MainActivity::class.java)
+    var acitivityTestRule = ActivityTestRule(MainActivity::class.java)
     lateinit var myActivity: MainActivity
 
     @Before
-    fun setup(){
-        myActivity=acitivityTestRule.activity
+    fun setup() {
+        myActivity = acitivityTestRule.activity
     }
+
     @Test
-    fun loginTest(){
+    fun loginTest() {
         onView(withId(R.id.et_password)).perform(typeText("1234"))
         onView(withId(R.id.et_username)).perform(typeText("kote"))
         onView(withId(R.id.bt_login)).perform(click())
         Thread.sleep(1000)
         onView(withId(R.id.textTest)).check(matches(withText("ok")))
-
     }
+
     @Test
-    fun validUseraName(){
+    fun validUserName() {
         onView(withId(R.id.et_password)).perform(typeText("1234"))
         onView(withId(R.id.bt_login)).perform(click())
         onView(withId(R.id.et_username)).check(matches(hasErrorText("username required")))
     }
+
     @Test
-    fun validPassowrd(){
+    fun validPassowrd() {
         onView(withId(R.id.et_username)).perform(typeText("kote"))
         onView(withId(R.id.bt_login)).perform(click())
         onView(withId(R.id.et_password)).check(matches(hasErrorText("password required")))
-
     }
 
     @After
-    fun tearDown(){
+    fun tearDown() {
         true
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
     /*@Rule @JvmField
     var mactivityTestRule= ActivityTestRule(MainActivity::class.java)
@@ -150,5 +118,3 @@ class MainActivityTest {
 
         throw TimeoutException()
     }*/
-
-}
